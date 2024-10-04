@@ -7,4 +7,4 @@ This variant retrieves live match when done typing. This time clicking the submi
 
 Grid of two columns as placeholder when favorite button is clicked. The search button hits external API.!
 
-![SBA320](Screenshot 2024-10-03 at 2.11.08 PM)
+![SBA320 variant](S<creenshot 2024-10-03 at 2.11.08 PM>)
