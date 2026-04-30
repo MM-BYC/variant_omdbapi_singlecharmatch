@@ -24,12 +24,15 @@ function Form(props) {
   //   • Resets the debounce timer — if the user types again within 500 ms the
   //     previous timer is cleared and a new one starts, preventing rapid-fire API calls.
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    const newValue = event.target.value;
+    setFormData({ ...formData, [event.target.name]: newValue });
 
-    // Cancel the previous pending search before starting a new countdown
+    // Cancel the previous pending search before starting a new countdown.
+    // newValue is captured from the event directly — avoids stale closure bug
+    // where formData.searchterm would still hold the pre-keystroke value.
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      props.moviesearch(formData.searchterm);
+      props.moviesearch(newValue);
     }, 500); // wait 500 ms of inactivity before searching
   };
 
